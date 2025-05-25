@@ -1,0 +1,66 @@
+
+###
+get http://localhost:3000/student-api/students
+
+###
+POST http://localhost:3000/student-api/student
+Content-Type: application/json
+
+{
+  "email": "jane@example.com",
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "profileImageUrl": "http://example.com/image.jpg",
+  "isActive": true
+}
+###
+
+put http://localhost:3000/student-api/student/6830b09924dfc6d87f52555e
+Content-Type: application/json
+
+{
+  "email": "jane@example.com",
+  "firstName": "John",
+  "lastName": "Down",
+  "profileImageUrl": "http://example.com/image.jpg",
+  "isActive": true
+}
+
+###
+post http://localhost:3000/admin-api/admin
+Content-Type:application/json
+
+{
+   "eventId":"{{$timestamp}}",
+  "eventName": "Hackathon 2025",
+    "eventImageUrl": "https://example.com/images/hackathon2025.jpg",
+    "eventTitle": "Innovate and Code",
+    "eventInfo": "A 24-hour coding event where teams compete to solve real-world problems.",
+    "prizeInfo": "1st Prize: $2000, 2nd Prize: $1000, 3rd Prize: $500",
+    "teamSize": "2-4",
+    "registrationInfo": "Register at https://example.com/hackathon2025",
+    "isEventActive": true
+}
+
+
+###
+get http://localhost:3000/admin-api/admins
+
+###
+put http://localhost:3000/admin-api/admin/eventId
+Content-Type:application/json
+
+{
+  "eventId":"1748161464",
+  "eventName": "Hack",
+    "eventImageUrl": "https://example.com/images/hackathon2025.jpg",
+    "eventTitle": "Innovate and Code",
+    "eventInfo": "A 24-hour coding event where teams compete to solve real-world problems.",
+    "prizeInfo": "1st Prize: $2000, 2nd Prize: $1000, 3rd Prize: $500",
+    "teamSize": "2-4",
+    "registrationInfo": "Register at https://example.com/hackathon2025",
+    "isEventActive": true
+}
+
+###
+put http://localhost:3000/admin-api/admins/1748161464

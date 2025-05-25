@@ -1,0 +1,22 @@
+const exp=require('express')
+const app=exp()
+// const studentModel=require('./Models/StudentModel')
+const studentApp=require('./Apis/StudentApi')
+const adminApp=require('./Apis/AdminApi')
+console.log(adminApp)
+const cors=require('cors')
+app.use(cors())
+app.use(exp.json())
+require('dotenv').config()
+const mongoose=require('mongoose')
+const port=process.env.PORT
+mongoose.connect(process.env.DBURL)
+.then(()=>{
+  app.listen(port,()=>console.log(`server running on ${port}`))
+  console.log("DB connection Success")
+})
+.catch((e)=>{
+    console.log("error")
+})
+app.use('/admin-api',adminApp)
+app.use('/student-api',studentApp)
